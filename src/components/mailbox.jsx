@@ -14,7 +14,7 @@ const MailBox = ()=>{
         }} height={{
             "base": "90%",
             "md": "80%"
-        }} gap="50px">
+        }} gap="30px">
             <MailList/>
             <MailContent/>
         </Grid>
