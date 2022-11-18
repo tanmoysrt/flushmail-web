@@ -5,7 +5,16 @@ import MailContent from "./mailcontent";
 
 const MailBox = ()=>{
     return (
-        <Grid templateColumns="1fr 4fr" marginTop="40px" height="80%">
+        <Grid templateColumns={{
+            "base": "1fr",
+            "md": "1fr 3fr"
+        }} marginTop={{
+            "base": "20px",
+            "md": "40px"
+        }} height={{
+            "base": "90%",
+            "md": "80%"
+        }} gap="50px">
             <MailList/>
             <MailContent/>
         </Grid>
