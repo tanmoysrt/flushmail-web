@@ -4,8 +4,17 @@ import { ArrowDownIcon } from '@chakra-ui/icons'
 
 const MailAttachment = () => {
     return (
-        <Box paddingY="10px" paddingX="17px" backgroundColor="white" borderRadius="50px"> 
-            <Flex justifyContent="center" alignItems="center" fontSize="19px">
+        <Box paddingY={{
+            base: "8px",
+            md: "10px",
+        }} paddingX={{
+            base: "10px",
+            md: "17px",
+        }} backgroundColor="white" borderRadius="50px"> 
+            <Flex justifyContent="center" alignItems="center" fontSize={{
+                base: "15px",
+                md : "19px"
+            }}>
                 <Text>admission.pdf</Text>&nbsp;&nbsp;
                 <ArrowDownIcon/>
             </Flex>

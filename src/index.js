@@ -10,6 +10,7 @@ import "./sass/main.scss"
 
 import Navbar from "./components/navbar";
 import MailBox from "./components/mailbox";
+import ViewMailMobile from "./viewEmailMobile";
 
 const theme = extendTheme({
   fonts:{
@@ -21,10 +22,11 @@ const theme = extendTheme({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ChakraProvider theme={theme}>
       <Navbar />
+      {/* <ViewMailMobile/> */}
       <MailBox />
     </ChakraProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

@@ -1,4 +1,4 @@
-import {Box, Flex, Text} from "@chakra-ui/react";
+import {Box, Flex, Wrap , Text} from "@chakra-ui/react";
 import MailAttachment from "./mailAttachment";
 
 const MailContent = ()=>{
@@ -22,12 +22,21 @@ const MailContent = ()=>{
 
             </Box>
             {/* Attachments */}
-            <Flex marginTop="20px" gap="10px">
+            <Wrap marginTop="20px" gap="10px">
                 <MailAttachment/>
                 <MailAttachment/>
                 <MailAttachment/>
                 <MailAttachment/>
-            </Flex>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+                <MailAttachment/>
+            </Wrap>
         </Box>
     );
 }

@@ -17,7 +17,9 @@ const MailCard = ()=>{
             <Text fontSize={{
                 base: "12px",
                 md: "17px",
-            }}  color="#616161">Tap the link to reset the password. Kindly dont share the password or link with anone else.</Text>
+            }} 
+            lineHeight="0.95"
+            color="#616161">Tap the link to reset the password. Kindly dont share the password or link with anone else.</Text>
         </Box>
     );
 }
