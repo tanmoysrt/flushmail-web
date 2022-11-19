@@ -3,7 +3,10 @@ import MailAttachment from "./mailAttachment";
 
 const MailContent = ()=>{
     return (
-        <Box width="100%" backgroundColor="#F8F8F8" borderRadius="10px" padding="27px">
+        <Box width="100%" backgroundColor="#F8F8F8" borderRadius="10px" padding="27px" display={{
+            "base": "none",
+            "md": "block"
+        }}>
             {/* Headers */}
             <Flex fontSize="18px">
                 <Text fontWeight="semibold">XYZ Company <span style={{

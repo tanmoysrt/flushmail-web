@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react";
+import { Grid , Box} from "@chakra-ui/react";
 
 import MailList from "./mailist";
 import MailContent from "./mailcontent";
@@ -6,7 +6,7 @@ import MailContent from "./mailcontent";
 const MailBox = ()=>{
     return (
         <Grid templateColumns={{
-            "base": "1fr",
+            "base": "1fr 0fr",
             "md": "1fr 3fr"
         }} marginTop={{
             "base": "20px",
@@ -14,9 +14,18 @@ const MailBox = ()=>{
         }} height={{
             "base": "90%",
             "md": "80%"
-        }} gap="30px">
+        }} gap={{
+            "base": "0px",
+            "md": "30px"
+        }}
+        >
             <MailList/>
-            <MailContent/>
+            <Box display={{
+                "base" : "none",
+                "md" : "block"
+            }}>
+                <MailContent/>
+            </Box>
         </Grid>
     );
 }
