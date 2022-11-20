@@ -17,7 +17,7 @@ const MailBox = ({dataRef, mailContent})=>{
             "md": "40px"
         }} height={{
             "base": "90%",
-            "md": "80%"
+            "md": "85%"
         }} gap={{
             "base": "0px",
             "md": "30px"
