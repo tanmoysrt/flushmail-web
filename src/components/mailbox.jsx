@@ -3,7 +3,11 @@ import { Grid , Box} from "@chakra-ui/react";
 import MailList from "./mailist";
 import MailContent from "./mailcontent";
 
-const MailBox = ()=>{
+
+const MailBox = ({dataRef, mailContent})=>{
+
+
+
     return (
         <Grid templateColumns={{
             "base": "1fr 0fr",
@@ -19,12 +23,12 @@ const MailBox = ()=>{
             "md": "30px"
         }}
         >
-            <MailList/>
+            <MailList dataRef={dataRef} />
             <Box display={{
                 "base" : "none",
                 "md" : "block"
             }}>
-                <MailContent/>
+                <MailContent dataRef={dataRef} mailContent={mailContent}/>
             </Box>
         </Grid>
     );

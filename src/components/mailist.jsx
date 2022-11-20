@@ -1,7 +1,24 @@
 import { Flex } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import MailCard from "./mailcard";
 
-const MailList = () => {
+const MailList = ({dataRef}) => {
+
+  const [mails, setMails] = useState([]);
+
+  function updateMailList(){
+    setMails([...dataRef.current.mails]);
+  }
+
+  function onClikcMailCard(details){
+    if(dataRef.current.showMail) dataRef.current.showMail(details);
+  }
+
+  useEffect(()=>{
+    dataRef.current.updateMailList = updateMailList;
+  })
+
+
   return (
     <Flex
       backgroundColor="#F8F8F8"
@@ -18,14 +35,7 @@ const MailList = () => {
       }}
       overflowY="scroll"
     >
-      <MailCard />
-      <MailCard />
-      <MailCard />
-      <MailCard />
-      <MailCard />
-      <MailCard />
-      <MailCard />
-      <MailCard />
+      {mails.map((mail) => <MailCard key={mail.id} details={mail} onClick={onClikcMailCard} />)}
     </Flex>
   );
 };

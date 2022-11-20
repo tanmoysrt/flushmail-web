@@ -1,25 +1,26 @@
 import { Box , Text} from "@chakra-ui/react";
 
-const MailCard = ()=>{
+const MailCard = ({details, onClick})=>{
     return (
-        <Box width="100%" backgroundColor="white" borderRadius="10px" padding={{
+        <Box onClick={()=>onClick?onClick(details):{}} width="100%" backgroundColor="white" borderRadius="10px" padding={{
             base: "12px",
             md: "15px",
-        }}>
+        }}
+        cursor="pointer"
+        >
             <Text fontSize={{
                 base: "16px",
                 md: "20px",
-            }} fontWeight="bold">XYZ Company</Text>
+            }} fontWeight="bold">{details.fromName || details.fromEmail}</Text>
             <Text fontSize={{
                 base: "16px",
                 md: "20px",
-            }} fontWeight="semibold">Password Reset Link</Text>
+            }} fontWeight="semibold">{details.subject}</Text>
             <Text fontSize={{
-                base: "12px",
+                base: "14px",
                 md: "17px",
             }} 
-            lineHeight="0.95"
-            color="#616161">Tap the link to reset the password. Kindly dont share the password or link with anone else.</Text>
+            color="#616161">{details.truncatedContent}</Text>
         </Box>
     );
 }

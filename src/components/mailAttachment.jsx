@@ -2,7 +2,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { ArrowDownIcon } from '@chakra-ui/icons'
 
 
-const MailAttachment = () => {
+const MailAttachment = ({name, link}) => {
     return (
         <Box paddingY={{
             base: "8px",
@@ -10,12 +10,17 @@ const MailAttachment = () => {
         }} paddingX={{
             base: "10px",
             md: "17px",
-        }} backgroundColor="white" borderRadius="50px"> 
+        }} backgroundColor="white" borderRadius="50px"
+        
+        onClick={()=>{
+            window.open(link, "_blank");
+        }}
+        > 
             <Flex justifyContent="center" alignItems="center" fontSize={{
                 base: "15px",
                 md : "19px"
             }}>
-                <Text>admission.pdf</Text>&nbsp;&nbsp;
+                <Text>{name}</Text>&nbsp;&nbsp;
                 <ArrowDownIcon/>
             </Flex>
         </Box>

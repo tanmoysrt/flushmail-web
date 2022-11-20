@@ -5,12 +5,9 @@ import "@fontsource/nunito/700.css";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import MailContainer from "./components/container"
 
 import "./sass/main.scss"
-
-import Navbar from "./components/navbar";
-import MailBox from "./components/mailbox";
-import ViewMailMobile from "./viewEmailMobile";
 
 const theme = extendTheme({
   fonts:{
@@ -19,14 +16,14 @@ const theme = extendTheme({
   },
 })
 
+const topDataRef = React.createRef({});
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <Navbar />
-      {/* <ViewMailMobile/> */}
-      <MailBox />
+      <MailContainer/>
     </ChakraProvider>
   // </React.StrictMode>
 );
