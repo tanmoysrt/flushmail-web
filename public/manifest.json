@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Flushmail",
+  "name": "FlushMail.live - disposable anonymous email",
   "icons": [
     {
       "src": "favicon.ico",
