@@ -98,11 +98,11 @@ const Navbar = ({dataRef, email}) => {
                         "md": "absolute"
                     }}
                     bottom={{
-                        "base": "20px",
+                        "base": "5px",
                         "md": "20px"
                     }}
                     right={{
-                        "base": "10px",
+                        "base": "5px",
                         "md": "30px"
                     }}
                     onClick={dataRef.current.flushEmailId}
