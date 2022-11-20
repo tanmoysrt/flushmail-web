@@ -45,7 +45,9 @@ const Container = () => {
   }
 
   function clearMail() {
+    mail
     setMailContent(null);
+    dataRef.current.updateMailList();
   }
 
   function loadMails() {
