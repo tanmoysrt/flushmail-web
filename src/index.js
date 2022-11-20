@@ -16,7 +16,6 @@ const theme = extendTheme({
   },
 })
 
-const topDataRef = React.createRef({});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

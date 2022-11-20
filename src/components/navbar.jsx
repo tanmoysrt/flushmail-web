@@ -1,81 +1,14 @@
 import { Box, Flex, Img, Button, Text } from '@chakra-ui/react';
 import logo from '../img/logo-full.png';
 import { DeleteIcon, CopyIcon } from '@chakra-ui/icons'
-import { useEffect, useRef, useState } from 'react';
-
-import config from "../config";
 
 
-const Navbar = () => {
 
-    const [email, setEmail] = useState("");
-
-    const dataRef = useRef({});
-
-    function refreshEmailId(){
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-          };
-          
-        console.log("refreshing email "+ dataRef.current["email"] +" token "+dataRef.current["token"]);
-        
-
-        fetch(config.baseURL+"/details/?token="+dataRef.current["token"]+"&email="+dataRef.current["email"], requestOptions)
-        .then(response => response.json())
-        .then(result => {
-            if(result.success){
-                const payload = result.payload;
-                if(payload.id.toString() !== dataRef.current["emailId"]){ 
-                    // call function to drop old mails and fetch new mails
-                }
-
-                dataRef.current["email"] = payload.emailId;
-                dataRef.current["token"] = payload.token;
-                dataRef.current["emailId"] = payload.id;
-
-                localStorage.setItem("email", payload.emailId);
-                localStorage.setItem("token", payload.token);
-                localStorage.setItem("emailId", payload.id);
-
-                setEmail(payload.emailId);
-            }
-        })
-        .catch(error => console.log('error', error));
-
-        setTimeout(refreshEmailId, 10000);
-    };
+const Navbar = ({dataRef, email}) => {
 
     function copyEmailId(){
         navigator.clipboard.writeText(email);
     }
-
-    function flushEmailId(){
-        var requestOptions = {
-            method: 'DELETE',
-            redirect: 'follow'
-        };
-        
-        fetch(config.baseURL+"/flush/?token="+dataRef.current["token"]+"&id="+dataRef.current["emailId"], requestOptions)
-            .then(response => response.text())
-            .then(result =>{
-                localStorage.removeItem("email");
-                localStorage.removeItem("token");
-                localStorage.removeItem("emailId");
-                window.location.reload();
-            })
-            .catch(error => console.log('error', error));
-    }
-
-
-    useEffect(() => {
-        dataRef.current["email"] = localStorage.getItem("email") || "";
-        dataRef.current["emailId"] = localStorage.getItem("emailId") || "";
-        dataRef.current["token"] = localStorage.getItem("token") || "";
-        refreshEmailId();
-    },[]);
-
-
 
     return (
         <Box>
@@ -172,7 +105,7 @@ const Navbar = () => {
                         "base": "10px",
                         "md": "30px"
                     }}
-                    onClick={flushEmailId}
+                    onClick={dataRef.current.flushEmailId}
                 ><DeleteIcon/>&nbsp;&nbsp;Flush E-mail</Button>
             </Flex>
         </Box>
