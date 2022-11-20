@@ -17,7 +17,7 @@ const MailList = ({dataRef}) => {
   }
 
   useEffect(()=>{
-    dataRef.current.updateMailList = updateMailList;
+    dataRef.current.updateMailList = updateMailList;    
   },[])
 
 

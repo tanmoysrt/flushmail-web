@@ -11,6 +11,7 @@ const Container = () => {
     isDesktop: true,
     mails: [],
     latestId: 0,
+
   });
 
 
@@ -45,9 +46,10 @@ const Container = () => {
   }
 
   function clearMail() {
-    mail
     setMailContent(null);
-    dataRef.current.updateMailList();
+    setTimeout(() => {
+      dataRef.current.updateMailList();
+    }, 100);
   }
 
   function loadMails() {
