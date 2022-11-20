@@ -4,6 +4,7 @@ import ViewMailMobile from "../viewEmailMobile";
 import { useEffect, useRef, useState } from "react";
 import config from "../config";
 import toast, { Toaster } from 'react-hot-toast';
+import { Box, Progress } from "@chakra-ui/react";
 
 const Container = () => {
   const dataRef = useRef({
@@ -12,9 +13,9 @@ const Container = () => {
     latestId: 0,
   });
 
-  // showMail,
 
   const [mailContent, setMailContent] = useState(null);
+  const [isRefreshingMail, setIsRefreshingMail] = useState(null);
   const [email, setEmail] = useState("");
 
   function showMail(details) {
@@ -59,6 +60,8 @@ const Container = () => {
       redirect: "follow",
     };
 
+    setIsRefreshingMail(true);
+
     fetch(
       config.baseURL +
         "/latest/?token=" +
@@ -82,6 +85,7 @@ const Container = () => {
       .catch((error) => console.log("error", error))
       .finally(() => {
         setTimeout(loadMails, 10000);
+        setIsRefreshingMail(false);
       });
   }
 
@@ -177,10 +181,24 @@ const Container = () => {
     refreshEmailId();
 
     loadMails();
-  });
+  },[]);
 
   return (
     <>
+
+
+  <Box 
+    position="absolute"
+    top="0"
+    left="0"
+    right="0"
+    visibility={isRefreshingMail ? "visible" : "hidden"}
+  >
+    <Progress size='xs' colorScheme="teal" isIndeterminate  />
+  </Box>
+
+          
+
     <Toaster
       position="bottom-center"
       reverseOrder={false}

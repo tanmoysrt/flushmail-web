@@ -18,7 +18,7 @@ const MailList = ({dataRef}) => {
 
   useEffect(()=>{
     dataRef.current.updateMailList = updateMailList;
-  })
+  },[])
 
 
   return (
@@ -37,6 +37,7 @@ const MailList = ({dataRef}) => {
       }}
       overflowY="scroll"
     >
+      
       {
         mails.length > 0 ? mails.map((mail) => <MailCard key={mail.id} details={mail} onClick={onClikcMailCard} />)
         : <Box 
