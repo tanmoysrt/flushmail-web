@@ -1,6 +1,7 @@
 import { Box, Flex, Img, Button, Text } from '@chakra-ui/react';
 import logo from '../img/logo-full.png';
 import { DeleteIcon, CopyIcon } from '@chakra-ui/icons'
+import toast from 'react-hot-toast';
 
 
 
@@ -8,6 +9,7 @@ const Navbar = ({dataRef, email}) => {
 
     function copyEmailId(){
         navigator.clipboard.writeText(email);
+        toast.success("Email copied to clipboard");
     }
 
     return (
